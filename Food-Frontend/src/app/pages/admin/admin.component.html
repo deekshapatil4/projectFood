@@ -1,0 +1,83 @@
+
+
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style="color:white">Admin Page</h1>
+    <div class="d-flex">
+      <button  (click)="clickAddFood()"  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Food</button>
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Food Id</th>
+      <th scope="col">Food Name</th>
+      <th scope="col">Food Image</th>
+      <th scope="col">Food Price</th>
+      <th scope="col">Food star</th>
+      <th scope="col">Food Favorite</th>
+      <th scope="col">Food cookTime</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of fooddata">
+      <td>{{row.id}}</td>
+      <td>{{row.fname}}</td>
+      <td>{{row.fimage}}</td>
+      <td>{{row.fprice}}</td>
+      <td>{{row.star}}</td>
+      <td>{{row.favorite}}</td>
+      <td>{{row.cookTime}}</td>
+      <td>
+        <button  (click)="onedit(row)" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-btn-info">Edit</button>
+        <button (click)="deleteFood(row)"  type="button"  class="btn-btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Movie Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Food Name</label>
+            <input type="text" formControlName="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Food Image</label>
+            <input type="text" formControlName="fimage" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Food Price</label>
+            <input type="text"  formControlName="fprice" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Food star</label>
+            <input type="text"  formControlName="star" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Favorite</label>
+            <input type="text"  formControlName="favorite" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postFoodDetails()" class="btn btn-primary">Add</button>
+        <button type="button" *ngIf="showUpdate"  (click)="updateFoodDetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

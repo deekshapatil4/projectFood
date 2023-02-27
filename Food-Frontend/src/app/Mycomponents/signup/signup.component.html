@@ -1,0 +1,48 @@
+<div class="outer">
+  <div class="cointainer">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+       <div class="pannel border bg-white">
+        <div class="pannel-heading">
+          <h3 class="pt-3 font-weight-bold">Login</h3>
+        </div>
+        <div class="pannel-body p-3">
+          <form #Register="ngForm" (ngSubmit)="registerUser()">
+           <!-- <small [class.text-danger]="msg.status==500">{{msg.message}}</small> -->
+            <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-user p-2"></span>
+              <input type="text" placeholder="Username" name="username" [(ngModel)]="user.username" #username="ngModel"
+              [class.is-invalid]="username.invalid&&username.touched">
+              <small class="text-danger" [class.d-none]="username.valid||username.untouched">Username is required</small>
+            </div>
+           </div>
+           <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-envelope p-2"></span>
+              <input type="text" placeholder="Email" name="email" [(ngModel)]="user.email">
+            </div>
+           </div>
+           <div class="form-group pt-3">
+            <div class="input-field">
+              <span class=" fa fa-phone"></span>
+              <input type="text" placeholder="phonenumber" name="phonenumber" [(ngModel)]="user.number">
+            </div>
+           </div>
+           <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-lock p-2"></span>
+              <input [type]="type" placeholder="password" name="password" [(ngModel)]="user.password">
+              <span (click)="hideshowpass()"class="fa {{eyeIcon}}"></span>
+            </div>
+           </div>
+
+           <button type="submit" class="btn btn-primary btn-block mt-4 w-100">SignUp</button>
+
+          </form>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:3rem ;
+}
+p{
+   font-style: italic;
+  font-weight: 10rem;
+  font-size: 2rem;
+  color:green;
+  display: flex;
+  width: 100%;
+   flex-direction:column;
+  border: 3rem;
+  padding: 2rem;
+  margin-left: 25rem;
+}
+img{
+  height: 5rem;
+  width: 5rem;
+  flex-direction: column;
+}
